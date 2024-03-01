@@ -1,7 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, View, Button, Pressable} from 'react-native';
 import {Hero} from '../../types';
-
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from '../../types';
@@ -13,13 +12,18 @@ const styles = StyleSheet.create({
   hero: {
     borderBottomWidth: 1,
     flexDirection: 'row',
-    height: 50,
+    height: 60,
     justifyContent: 'space-between',
     borderColor: 'grey',
-    marginTop: 30,
     paddingLeft: 10,
     paddingRight: 10,
     alignItems: 'center',
+  },
+  favoriteText: {
+    textAlign: 'center',
+    marginTop: 10,
+    color: 'red',
+    fontSize: 16,
   },
 
   button: {
@@ -33,13 +37,15 @@ interface Props {
 
 export default ({item}: Props) => {
   const navigation = useNavigation<RootStackNavigationProp>();
-  const {addHeroToFavorite, removeHeroFromFavorite, isFavorites} =
-    useFavorite();
+  const {addHeroToFavorite, removeHeroFromFavorite, isFavorite} = useFavorite();
 
   return (
     <Pressable onPress={() => navigation.navigate('Detail', {item})}>
+      {isFavorite.includes(item) && (
+        <Text style={styles.favoriteText}>in Favorite</Text>
+      )}
       <View style={styles.hero}>
-        {isFavorites ? (
+        {isFavorite.includes(item) ? (
           <Button
             color="red"
             title={'Remove'}

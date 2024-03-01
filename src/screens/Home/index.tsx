@@ -1,16 +1,15 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, FlatList, View} from 'react-native';
+import {SafeAreaView, StyleSheet, FlatList} from 'react-native';
 import Metrics from '../../utils';
 import Heroes from '../../components/Heroes';
 import FansPannel from '../../components/FansPannel';
 import {useGetHeroes} from '../../hooks/useGetHeroes';
 
 const styles = StyleSheet.create({
-  container: {
+  flatList: {
     marginLeft: 15,
     marginRight: 15,
     width: Metrics.width - 30,
-
     backgroundColor: 'white',
   },
 
@@ -27,13 +26,12 @@ export default () => {
   return (
     <SafeAreaView style={styles.wrapper}>
       <FansPannel />
-      <View style={styles.container}>
-        <FlatList
-          data={heroes}
-          renderItem={({item}) => <Heroes item={item} />}
-          keyExtractor={item => item.name.toString()}
-        />
-      </View>
+      <FlatList
+        style={styles.flatList}
+        data={heroes}
+        renderItem={({item}) => <Heroes item={item} />}
+        keyExtractor={item => item.name.toString()}
+      />
     </SafeAreaView>
   );
 };

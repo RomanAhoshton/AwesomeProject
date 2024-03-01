@@ -5,14 +5,14 @@ export interface HeroState {
   male: Hero[];
   female: Hero[];
   other: Hero[];
-  isFavorite: boolean;
+  isFavorite: Hero[];
 }
 
 const initialState: HeroState = {
   male: [],
   female: [],
   other: [],
-  isFavorite: true,
+  isFavorite: [],
 };
 
 export const favoriteSlice = createSlice({
@@ -20,6 +20,7 @@ export const favoriteSlice = createSlice({
   initialState,
   reducers: {
     addToFavorite: (state, action: PayloadAction<Hero>) => {
+      state.isFavorite.push(action.payload);
       if (action.payload.gender === 'female') {
         state.female.push(action.payload);
       } else if (action.payload.gender === 'male') {
@@ -29,6 +30,9 @@ export const favoriteSlice = createSlice({
       }
     },
     removeFromFavorite: (state, action: PayloadAction<Hero>) => {
+      state.isFavorite = state.isFavorite.filter(
+        item => item.name !== action.payload.name,
+      );
       if (action.payload.gender === 'female') {
         state.female = state.female.filter(
           item => item.name !== action.payload.name,
@@ -48,7 +52,7 @@ export const favoriteSlice = createSlice({
       state.female = [];
       state.male = [];
       state.other = [];
-      state.isFavorite = false;
+      state.isFavorite = [];
     },
   },
 });

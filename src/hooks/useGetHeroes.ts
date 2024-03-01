@@ -1,9 +1,9 @@
 import {useState, useEffect} from 'react';
 import {Hero} from '../types';
 import axios from 'axios';
-import {url} from '../helpers';
 
 export const useGetHeroes = () => {
+  const url = 'https://swapi.dev/api/people/';
   const [heroes, setHeroes] = useState<null | Hero[]>(null);
 
   useEffect(() => {

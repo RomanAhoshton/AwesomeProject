@@ -34,6 +34,17 @@ const styles = StyleSheet.create({
     marginTop: 30,
     marginBottom: 30,
   },
+  description: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingLeft: 15,
+    paddingRight: 15,
+    marginBottom: 10,
+  },
+  descriptionText: {
+    fontSize: 18,
+    fontWeight: '600',
+  },
 });
 
 export default () => {
@@ -51,6 +62,13 @@ export default () => {
         <Count title="Female Fans" count={female.length} />
         <Count title="Male Fans" count={male.length} />
         <Count title="Others" count={other.length} />
+      </View>
+
+      <View style={styles.description}>
+        <Text style={styles.descriptionText}>Favorite</Text>
+        <Text style={styles.descriptionText}>Name</Text>
+        <Text style={styles.descriptionText}>Birth Year</Text>
+        <Text style={styles.descriptionText}>Gender</Text>
       </View>
     </View>
   );

@@ -1,4 +1,3 @@
-// eslint-disable-next-line prettier/prettier
 import {NavigationContainer} from '@react-navigation/native';
 import StackNavigation from './StackNavigation';
 

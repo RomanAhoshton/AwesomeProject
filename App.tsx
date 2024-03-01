@@ -6,20 +6,16 @@
  */
 
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {Root as RootNavigator} from './src';
+import {store} from './src/redux/store';
+import {Provider} from 'react-redux';
+
 const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>AAAA</Text>
-    </View>
+    <Provider store={store}>
+      <RootNavigator />
+    </Provider>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-});
 
 export default App;

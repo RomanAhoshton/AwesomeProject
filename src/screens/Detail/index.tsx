@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 import {RouteProp} from '@react-navigation/native';
-import {RootStackParamList} from '../../types'; // Adjust the path as per your project structure
+import {RootStackParamList} from '../../types';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import Metrics from '../../utils';
 

@@ -1,9 +1,36 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, FlatList} from 'react-native';
-import Metrics from '../../utils';
-import Heroes from '../../components/Heroes';
-import FansPannel from '../../components/FansPannel';
-import {useGetHeroes} from '../../hooks/useGetHeroes';
+import {
+  SafeAreaView,
+  StyleSheet,
+  FlatList,
+  ActivityIndicator,
+} from 'react-native';
+import Metrics from 'utils/index';
+import Heroes from 'components/Heroes';
+import FansPannel from 'components/FansPannel';
+import {useGetHeroes} from 'hooks/useGetHeroes';
+
+export default () => {
+  const {heroes, loading, loadMore} = useGetHeroes();
+
+  return (
+    <SafeAreaView style={styles.wrapper}>
+      <FansPannel />
+      <FlatList
+        style={styles.flatList}
+        data={heroes}
+        renderItem={({item}) => <Heroes item={item} />}
+        keyExtractor={item => item.id.toString()}
+        onEndReached={loadMore}
+        onEndReachedThreshold={0.1}
+      />
+
+      {loading && (
+        <ActivityIndicator size="large" color="red" style={styles.loader} />
+      )}
+    </SafeAreaView>
+  );
+};
 
 const styles = StyleSheet.create({
   flatList: {
@@ -18,20 +45,8 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingBottom: 20,
   },
+
+  loader: {
+    paddingBottom: 10,
+  },
 });
-
-export default () => {
-  const {heroes} = useGetHeroes();
-
-  return (
-    <SafeAreaView style={styles.wrapper}>
-      <FansPannel />
-      <FlatList
-        style={styles.flatList}
-        data={heroes}
-        renderItem={({item}) => <Heroes item={item} />}
-        keyExtractor={item => item.name.toString()}
-      />
-    </SafeAreaView>
-  );
-};

@@ -7,6 +7,7 @@ export interface Hero {
   eye_color: string;
   birth_year: string;
   gender: string;
+  id: string;
 }
 type DetailScreenParams = {
   item: Hero;

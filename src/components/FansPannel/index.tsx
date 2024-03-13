@@ -1,7 +1,34 @@
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import React from 'react';
 import Count from '../Count';
-import {useFavorite} from '../../hooks/useFavorite';
+import {useFavorite} from 'hooks/useFavorite';
+
+export default () => {
+  const {male, female, other, cleanAll} = useFavorite();
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.buttonTitle}>
+        <Text style={styles.title}> Fans</Text>
+        <TouchableOpacity style={styles.button} onPress={cleanAll}>
+          <Text style={styles.text}>CLEAR FANS</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.countContainer}>
+        <Count title="Female Fans" count={female.length} />
+        <Count title="Male Fans" count={male.length} />
+        <Count title="Others" count={other.length} />
+      </View>
+
+      <View style={styles.description}>
+        <Text style={styles.descriptionText}>Favorite</Text>
+        <Text style={styles.descriptionText}>Name</Text>
+        <Text style={styles.descriptionText}>Birth Year</Text>
+        <Text style={styles.descriptionText}>Gender</Text>
+      </View>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -46,30 +73,3 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
 });
-
-export default () => {
-  const {male, female, other, cleanAll} = useFavorite();
-
-  return (
-    <View style={styles.container}>
-      <View style={styles.buttonTitle}>
-        <Text style={styles.title}> Fans</Text>
-        <TouchableOpacity style={styles.button} onPress={cleanAll}>
-          <Text style={styles.text}>CLEAR FANS</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.countContainer}>
-        <Count title="Female Fans" count={female.length} />
-        <Count title="Male Fans" count={male.length} />
-        <Count title="Others" count={other.length} />
-      </View>
-
-      <View style={styles.description}>
-        <Text style={styles.descriptionText}>Favorite</Text>
-        <Text style={styles.descriptionText}>Name</Text>
-        <Text style={styles.descriptionText}>Birth Year</Text>
-        <Text style={styles.descriptionText}>Gender</Text>
-      </View>
-    </View>
-  );
-};

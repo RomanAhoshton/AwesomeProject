@@ -1,6 +1,20 @@
 import React from 'react';
 import {View, StyleSheet, Text} from 'react-native';
 
+interface Props {
+  title: string;
+  count: number;
+}
+
+export default ({title, count}: Props) => {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.count}>{count}</Text>
+      <Text style={styles.title}>{title}</Text>
+    </View>
+  );
+};
+
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
@@ -17,17 +31,3 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
 });
-
-interface Props {
-  title: string;
-  count: number;
-}
-
-export default ({title, count}: Props) => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.count}>{count}</Text>
-      <Text style={styles.title}>{title}</Text>
-    </View>
-  );
-};

@@ -1,5 +1,5 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {Hero} from '../../types';
+import {Hero} from 'types/index';
 
 export interface HeroState {
   male: Hero[];

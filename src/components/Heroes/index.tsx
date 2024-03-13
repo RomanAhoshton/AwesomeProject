@@ -1,35 +1,13 @@
 import React from 'react';
 import {StyleSheet, Text, View, Button, Pressable} from 'react-native';
-import {Hero} from '../../types';
+import {Hero} from 'types/index';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {RootStackParamList} from '../../types';
-import {useFavorite} from '../../hooks/useFavorite';
+import {RootStackParamList} from 'types/index';
+import {useFavorite} from 'hooks/useFavorite';
+import {ScreenNames} from 'src/navigation/StackNavigation';
 
 type RootStackNavigationProp = StackNavigationProp<RootStackParamList>;
-
-const styles = StyleSheet.create({
-  hero: {
-    borderBottomWidth: 1,
-    flexDirection: 'row',
-    height: 60,
-    justifyContent: 'space-between',
-    borderColor: 'grey',
-    paddingLeft: 10,
-    paddingRight: 10,
-    alignItems: 'center',
-  },
-  favoriteText: {
-    textAlign: 'center',
-    marginTop: 10,
-    color: 'red',
-    fontSize: 16,
-  },
-
-  button: {
-    color: 'red',
-  },
-});
 
 interface Props {
   item: Hero;
@@ -40,7 +18,7 @@ export default ({item}: Props) => {
   const {addHeroToFavorite, removeHeroFromFavorite, isFavorite} = useFavorite();
 
   return (
-    <Pressable onPress={() => navigation.navigate('Detail', {item})}>
+    <Pressable onPress={() => navigation.navigate(ScreenNames.Detail, {item})}>
       {isFavorite.includes(item) && (
         <Text style={styles.favoriteText}>in Favorite</Text>
       )}
@@ -66,3 +44,26 @@ export default ({item}: Props) => {
     </Pressable>
   );
 };
+
+const styles = StyleSheet.create({
+  hero: {
+    borderBottomWidth: 1,
+    flexDirection: 'row',
+    height: 60,
+    justifyContent: 'space-between',
+    borderColor: 'grey',
+    paddingLeft: 10,
+    paddingRight: 10,
+    alignItems: 'center',
+  },
+  favoriteText: {
+    textAlign: 'center',
+    marginTop: 10,
+    color: 'red',
+    fontSize: 16,
+  },
+
+  button: {
+    color: 'red',
+  },
+});

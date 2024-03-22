@@ -12,7 +12,6 @@ import {useGetHeroes} from '../../hooks/useGetHeroes';
 
 export default () => {
   const {heroes, loading, loadMore} = useGetHeroes();
-  console.log(heroes, 'heroes');
 
   return (
     <SafeAreaView style={styles.wrapper}>

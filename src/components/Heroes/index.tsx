@@ -1,11 +1,11 @@
 import React from 'react';
 import {StyleSheet, Text, View, Button, Pressable} from 'react-native';
-import {Hero} from 'types/index';
+import {Hero} from '../../types';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {RootStackParamList} from 'types/index';
-import {useFavorite} from 'hooks/useFavorite';
-import {ScreenNames} from 'src/navigation/StackNavigation';
+import {RootStackParamList} from '../../types';
+import {useFavorite} from '../../hooks/useFavorite';
+import {ScreenNames} from '../../navigation/StackNavigation';
 
 type RootStackNavigationProp = StackNavigationProp<RootStackParamList>;
 

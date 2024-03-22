@@ -3,7 +3,7 @@ import {Text, View, StyleSheet} from 'react-native';
 import {RouteProp} from '@react-navigation/native';
 import {RootStackParamList} from 'types/index';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import Metrics from 'utils/index';
+import Metrics from '../../utils/index';
 
 type DetailScreenRouteProp = RouteProp<RootStackParamList, 'Detail'>;
 
@@ -17,14 +17,14 @@ const DetailScreen = ({route}: Props) => {
     <SafeAreaView style={styles.wrapper}>
       <View style={styles.container}>
         <View style={styles.detailItem}>
-          <Text style={styles.textItem}>{`Name: ${item.name}`}</Text>
-          <Text style={styles.textItem}>{`Year: ${item.birth_year}`}</Text>
-          <Text style={styles.textItem}>{`Gender: ${item.gender}`}</Text>
-          <Text style={styles.textItem}>{`Hair: ${item.hair_color}`}</Text>
-          <Text style={styles.textItem}>{`Eye: ${item.eye_color}`}</Text>
-          <Text style={styles.textItem}>{`Skin: ${item.skin_color}`}</Text>
-          <Text style={styles.textItem}>{`Height: ${item.height}`}</Text>
-          <Text style={styles.textItem}>{`Weight: ${item.mass}`}</Text>
+          <Text style={styles.textItem}>{`Name: ${item?.name}`}</Text>
+          <Text style={styles.textItem}>{`Year: ${item?.birth_year}`}</Text>
+          <Text style={styles.textItem}>{`Gender: ${item?.gender}`}</Text>
+          <Text style={styles.textItem}>{`Hair: ${item?.hair_color}`}</Text>
+          <Text style={styles.textItem}>{`Eye: ${item?.eye_color}`}</Text>
+          <Text style={styles.textItem}>{`Skin: ${item?.skin_color}`}</Text>
+          <Text style={styles.textItem}>{`Height: ${item?.height}`}</Text>
+          <Text style={styles.textItem}>{`Weight: ${item?.mass}`}</Text>
         </View>
       </View>
     </SafeAreaView>

@@ -6,14 +6,14 @@
  */
 
 import React from 'react';
-import {Root as RootNavigator} from './src';
-import {store} from './src/redux/store';
+import Navigator from './src/navigation/index';
+import {store} from './src/redux/store.ts'; // Імпортуємо store
 import {Provider} from 'react-redux';
 
 const App = () => {
   return (
     <Provider store={store}>
-      <RootNavigator />
+      <Navigator />
     </Provider>
   );
 };

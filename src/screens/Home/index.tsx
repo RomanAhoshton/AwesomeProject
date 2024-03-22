@@ -5,17 +5,19 @@ import {
   FlatList,
   ActivityIndicator,
 } from 'react-native';
-import Metrics from 'utils/index';
-import Heroes from 'components/Heroes';
-import FansPannel from 'components/FansPannel';
-import {useGetHeroes} from 'hooks/useGetHeroes';
+import Metrics from '../../utils/index';
+import Heroes from '../../components/Heroes';
+import FansPannel from '../../components/FansPannel';
+import {useGetHeroes} from '../../hooks/useGetHeroes';
 
 export default () => {
   const {heroes, loading, loadMore} = useGetHeroes();
+  console.log(heroes, 'heroes');
 
   return (
     <SafeAreaView style={styles.wrapper}>
       <FansPannel />
+
       <FlatList
         style={styles.flatList}
         data={heroes}

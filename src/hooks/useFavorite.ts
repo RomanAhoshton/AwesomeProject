@@ -1,11 +1,11 @@
-import {Hero} from 'types/index';
+import {Hero} from '../types/index';
 import {
   addToFavorite,
   removeFromFavorite,
   clearAll,
-} from 'redux/slices/favoriteSlice';
+} from '../redux/slices/favoriteSlice';
 import {useDispatch, useSelector} from 'react-redux';
-import {RootState} from 'redux/store';
+import {RootState} from '../redux/store';
 
 export const useFavorite = () => {
   const dispatch = useDispatch();

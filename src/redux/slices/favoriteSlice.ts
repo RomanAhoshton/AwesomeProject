@@ -1,6 +1,8 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit'; // Імпортуйте createSlice з того ж самого місця
+
 import {Hero} from 'types/index';
 
+// Оголошення інтерфейсу та початкового стану
 export interface HeroState {
   male: Hero[];
   female: Hero[];
@@ -15,6 +17,7 @@ const initialState: HeroState = {
   isFavorite: [],
 };
 
+// Створення slice
 export const favoriteSlice = createSlice({
   name: 'favorite',
   initialState,
@@ -47,7 +50,6 @@ export const favoriteSlice = createSlice({
         );
       }
     },
-
     clearAll: state => {
       state.female = [];
       state.male = [];
@@ -57,7 +59,7 @@ export const favoriteSlice = createSlice({
   },
 });
 
+// Експорт редуктору та дій
 export const {addToFavorite, removeFromFavorite, clearAll} =
   favoriteSlice.actions;
-
 export default favoriteSlice.reducer;

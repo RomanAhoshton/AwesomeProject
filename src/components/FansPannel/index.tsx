@@ -1,7 +1,7 @@
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import React from 'react';
 import Count from '../Count';
-import {useFavorite} from 'hooks/useFavorite';
+import {useFavorite} from '../../hooks/useFavorite';
 
 export default () => {
   const {male, female, other, cleanAll} = useFavorite();
